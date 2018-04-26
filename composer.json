@@ -1,0 +1,51 @@
+{
+    "name": "pvtl/voyager-posts",
+    "description": "Ahoy! - A package to provide posts to Voyager",
+    "keywords": [
+        "laravel",
+        "frontend",
+        "voyager",
+        "posts",
+        "blog"
+    ],
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Pivotal Agency",
+            "homepage": "http://pivotalagency.com.au",
+            "email": "tech@pivotalagency.com.au"
+        }
+    ],
+    "require": {
+        "tcg/voyager": "^1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.7"
+    },
+    "autoload": {
+        "classmap": [],
+        "psr-4": {
+            "Pvtl\\VoyagerPosts\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "classmap": [],
+        "psr-4": {
+            "Pvtl\\VoyagerPosts\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Pvtl\\VoyagerPosts\\Providers\\PostsServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "post-package-install": [
+            "@php artisan voyager-posts:install"
+        ]
+    }
+}
