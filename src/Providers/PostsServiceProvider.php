@@ -57,7 +57,7 @@ class PostsServiceProvider extends ServiceProvider
     protected function strapViews()
     {
         // Load views
-        $this->loadViewsFrom(self::PACKAGE_DIR . 'resources/views', 'voyager-boilerplate');
+        $this->loadViewsFrom(self::PACKAGE_DIR . 'resources/views', 'voyager-posts');
         $this->loadViewsFrom(self::PACKAGE_DIR . 'resources/views/vendor/voyager', 'voyager');
     }
 
