@@ -10,7 +10,7 @@ use TCG\Voyager\Traits\HasRelationships;
 use TCG\Voyager\Traits\Resizable;
 use TCG\Voyager\Traits\Translatable;
 
-class Post extends Model
+class BlogPost extends Model
 {
     use Translatable,
         Resizable,

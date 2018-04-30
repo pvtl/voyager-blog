@@ -17,7 +17,7 @@ class BlogDataTypesTableSeeder extends Seeder
                 'display_name_singular' => 'Blog Post',
                 'display_name_plural'   => 'Blog Posts',
                 'icon'                  => 'voyager-news',
-                'model_name'            => 'Pvtl\\VoyagerBlog\\Post',
+                'model_name'            => 'Pvtl\\VoyagerBlog\\BlogPost',
                 'controller'            => '\\Pvtl\\VoyagerBlog\\Http\\Controllers\\PostController',
                 'generate_permissions'  => 1,
                 'description'           => '',
@@ -26,7 +26,7 @@ class BlogDataTypesTableSeeder extends Seeder
 
         if ($dataType->exists) {
             $dataType->update([
-                'model_name' => 'Pvtl\\VoyagerBlog\\Post',
+                'model_name' => 'Pvtl\\VoyagerBlog\\BlogPost',
                 'controller' => '\\Pvtl\\VoyagerBlog\\Http\\Controllers\\PostController',
             ]);
         }

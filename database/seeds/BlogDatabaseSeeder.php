@@ -18,6 +18,9 @@ class BlogDatabaseSeeder extends Seeder
     {
         $this->seed('BlogDataTypesTableSeeder');
         $this->seed('BlogDataRowsTableSeeder');
+        $this->seed('BlogPermissionsTableSeeder');
+        $this->seed('BlogPermissionRoleTableSeeder');
+        $this->seed('BlogMenuItemsTableSeeder');
         $this->seed('BlogTableSeeder');
     }
 }

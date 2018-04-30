@@ -2,11 +2,11 @@
 
 namespace Pvtl\VoyagerBlog\Http\Controllers;
 
-use Pvtl\VoyagerBlog\Post;
+use Pvtl\VoyagerBlog\BlogPost;
 use Illuminate\Support\Carbon;
-use Illuminate\Routing\Controller as BaseController;
+use TCG\Voyager\Http\Controllers\VoyagerBreadController as BaseVoyagerBreadController;
 
-class PostController extends BaseController
+class PostController extends BaseVoyagerBreadController
 {
     protected $viewPath = 'voyager-blog';
 
@@ -18,7 +18,7 @@ class PostController extends BaseController
     public function getPosts()
     {
         // Get featured post
-        $featuredPost = Post::where([
+        $featuredPost = BlogPost::where([
                 ['status', '=', 'PUBLISHED'],
                 ['featured', '=', '1'],
             ])->whereDate('published_date', '<=', Carbon::now())
@@ -27,7 +27,7 @@ class PostController extends BaseController
         $featuredPostId = $featuredPost ? $featuredPost->id : 0;
 
         // Get all posts
-        $posts = Post::where([
+        $posts = BlogPost::where([
                 ['status', '=', 'PUBLISHED'],
                 ['id', '!=', $featuredPostId],
             ])->whereDate('published_date', '<=', Carbon::now())
@@ -50,7 +50,7 @@ class PostController extends BaseController
     public function getPost($slug)
     {
         // The post
-        $post = Post::where([
+        $post = BlogPost::where([
                 ['slug', '=', $slug],
                 ['status', '=', 'PUBLISHED'],
             ])->whereDate('published_date', '<=', Carbon::now())

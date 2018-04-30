@@ -3,6 +3,4 @@
 @section('page_title', $post->title)
 @section('page_subtitle', 'Posted // ' . $post->created_at->format('jS M. Y'))
 
-@section('content')
-    {!! $post->body !!}
-@endsection
+{!! $post->body !!}
