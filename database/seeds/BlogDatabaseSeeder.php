@@ -1,11 +1,9 @@
 <?php
 
-use Pvtl\VoyagerPosts\Post;
-
 use TCG\Voyager\Traits\Seedable;
 use Illuminate\Database\Seeder;
 
-class PostsDatabaseSeeder extends Seeder
+class BlogDatabaseSeeder extends Seeder
 {
     use Seedable;
 
@@ -18,6 +16,8 @@ class PostsDatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->seed('PostsTableSeeder');
+        $this->seed('BlogDataTypesTableSeeder');
+        $this->seed('BlogDataRowsTableSeeder');
+        $this->seed('BlogTableSeeder');
     }
 }

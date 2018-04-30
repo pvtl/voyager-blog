@@ -1,6 +1,6 @@
 {
-    "name": "pvtl/voyager-posts",
-    "description": "Ahoy! - A package to provide posts to Voyager",
+    "name": "pvtl/voyager-blog",
+    "description": "Ahoy! - A package to provide a blog to Voyager",
     "keywords": [
         "laravel",
         "frontend",
@@ -26,26 +26,23 @@
     "autoload": {
         "classmap": [],
         "psr-4": {
-            "Pvtl\\VoyagerPosts\\": "src/"
+            "Pvtl\\VoyagerBlog\\": "src/"
         }
     },
     "autoload-dev": {
         "classmap": [],
         "psr-4": {
-            "Pvtl\\VoyagerPosts\\Tests\\": "tests/"
+            "Pvtl\\VoyagerBlog\\Tests\\": "tests/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Pvtl\\VoyagerPosts\\Providers\\PostsServiceProvider"
+                "Pvtl\\VoyagerBlog\\Providers\\BlogServiceProvider"
             ]
         }
     },
     "scripts": {
-        "test": "phpunit",
-        "post-package-install": [
-            "@php artisan voyager-posts:install"
-        ]
+        "test": "phpunit"
     }
 }

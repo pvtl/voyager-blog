@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class PostsTableSeeder extends Seeder
+class BlogTableSeeder extends Seeder
 {
     /**
      * Auto generated seed file.

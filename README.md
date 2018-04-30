@@ -1,6 +1,6 @@
-# Voyager Posts
+# Voyager Blog
 
-This [Laravel](https://laravel.com/)/[Voyager](https://laravelvoyager.com/) module adds Posts to Voyager.
+This [Laravel](https://laravel.com/)/[Voyager](https://laravelvoyager.com/) module adds a Blog to Voyager.
 
 Built by [Pivotal Agency](https://pivotal.agency/).
 
@@ -18,8 +18,8 @@ Built by [Pivotal Agency](https://pivotal.agency/).
 
 ```bash
 # 1. Require this Package in your fresh Laravel/Voyager project
-composer require pvtl/voyager-posts
+composer require pvtl/voyager-blog
 
 # 2. Run the Installer
-php artisan voyager-posts:install
+php artisan voyager-blog:install
 ```

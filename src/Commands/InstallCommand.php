@@ -1,8 +1,8 @@
 <?php
 
-namespace Pvtl\VoyagerPosts\Commands;
+namespace Pvtl\VoyagerBlog\Commands;
 
-use Pvtl\VoyagerPosts\Providers\PostsServiceProvider;
+use Pvtl\VoyagerBlog\Providers\BlogServiceProvider;
 use TCG\Voyager\Traits\Seedable;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
@@ -19,14 +19,14 @@ class InstallCommand extends Command
      *
      * @var string
      */
-    protected $name = 'voyager-posts:install';
+    protected $name = 'voyager-blog:install';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Install the Voyager Posts package';
+    protected $description = 'Install the Voyager Blog package';
 
     /**
      * Get the composer command for the environment.
@@ -54,8 +54,8 @@ class InstallCommand extends Command
      */
     public function handle()
     {
-        $this->info('Publishing Posts assets, database, and config files');
-        $this->call('vendor:publish', ['--provider' => PostsServiceProvider::class]);
+        $this->info('Publishing Blog assets, database, and config files');
+        $this->call('vendor:publish', ['--provider' => BlogServiceProvider::class]);
 
         $this->info('Dumping the autoloaded files and reloading all new files');
         $composer = $this->findComposer();
@@ -67,8 +67,8 @@ class InstallCommand extends Command
         $this->call('migrate');
 
         $this->info('Seeding data into the database');
-        $this->seed('PostsDatabaseSeeder');
+        $this->seed('BlogDatabaseSeeder');
 
-        $this->info('Successfully installed Voyager Posts! Enjoy');
+        $this->info('Successfully installed Voyager Blog! Enjoy');
     }
 }

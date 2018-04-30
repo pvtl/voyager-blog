@@ -1,11 +1,11 @@
 <?php
 
-namespace Pvtl\VoyagerPosts\Providers;
+namespace Pvtl\VoyagerBlog\Providers;
 
-use Pvtl\VoyagerPosts\Commands;
+use Pvtl\VoyagerBlog\Commands;
 use Illuminate\Support\ServiceProvider;
 
-class PostsServiceProvider extends ServiceProvider
+class BlogServiceProvider extends ServiceProvider
 {
     /**
      * Our root directory for this package to make traversal easier
@@ -57,7 +57,7 @@ class PostsServiceProvider extends ServiceProvider
     protected function strapViews()
     {
         // Load views
-        $this->loadViewsFrom(self::PACKAGE_DIR . 'resources/views', 'voyager-posts');
+        $this->loadViewsFrom(self::PACKAGE_DIR . 'resources/views', 'voyager-blog');
         $this->loadViewsFrom(self::PACKAGE_DIR . 'resources/views/vendor/voyager', 'voyager');
     }
 
