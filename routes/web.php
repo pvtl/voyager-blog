@@ -7,9 +7,9 @@ if (class_exists('\Pvtl\VoyagerFrontend\Http\Controllers\PostController')) {
 }
 
 Route::group([
-    'prefix' => 'posts', // Must match its `slug` record in the DB > `data_types`
+    'prefix' => 'blog', // Must match its `slug` record in the DB > `data_types`
     'middleware' => ['web'],
-    'as' => 'voyager-blog.posts.',
+    'as' => 'voyager-blog.blog.',
     'namespace' => $namespace,
 ], function () {
     Route::get('/', ['uses' => 'PostController@getPosts', 'as' => 'list']);
