@@ -31,5 +31,24 @@ class BlogMenuItemsTableSeeder extends Seeder
                 'order' => 5,
             ])->save();
         }
+
+        $menu = Menu::where('name', 'primary')->firstOrFail();
+
+        $menuItem = MenuItem::firstOrNew([
+            'menu_id' => $menu->id,
+            'title' => $title,
+            'url' => $url,
+            'route' => null,
+        ]);
+
+        if (!$menuItem->exists) {
+            $menuItem->fill([
+                'target' => '_self',
+                'icon_class' => null,
+                'color' => '#000000',
+                'parent_id' => null,
+                'order' => 3,
+            ])->save();
+        }
     }
 }
