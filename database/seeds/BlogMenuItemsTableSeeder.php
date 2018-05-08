@@ -51,7 +51,7 @@ class BlogMenuItemsTableSeeder extends Seeder
         // Add a top level 'blog' menu item
         $parentItem = MenuItem::firstOrNew([
             'menu_id' => $menu->id,
-            'title' => 'Blog Posts',
+            'title' => 'Blog',
             'url' => '',
             'route' => null,
         ]);
