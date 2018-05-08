@@ -85,7 +85,7 @@ class BlogMenuItemsTableSeeder extends Seeder
 
         // Nest Posts and Categories under Blog
         $postsItem = MenuItem::where([
-            ['title', '=', 'Posts'],
+            ['title', '=', 'Blog'],
             ['menu_id', '=', 1],
         ])->first();
         $postsItem->parent_id = (int)$parentItem->id;
