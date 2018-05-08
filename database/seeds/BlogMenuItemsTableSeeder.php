@@ -42,8 +42,8 @@ class BlogMenuItemsTableSeeder extends Seeder
 
         $menuItem = MenuItem::firstOrNew([
             'menu_id' => $menu->id,
-            'title' => $title,
-            'url' => $url,
+            'title' => 'Blog',
+            'url' => '/blog',
             'route' => null,
         ]);
 
