@@ -11,7 +11,7 @@ class BlogDataRowsTableSeeder extends Seeder
      */
     public function run()
     {
-        $postDataType = DataType::where('slug', 'blog_posts')->firstOrFail();
+        $postDataType = DataType::where('slug', 'blog')->firstOrFail();
 
         $dataRow = $this->dataRow($postDataType, 'id');
         if (!$dataRow->exists) {

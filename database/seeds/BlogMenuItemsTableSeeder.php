@@ -13,6 +13,12 @@ class BlogMenuItemsTableSeeder extends Seeder
      */
     public function run()
     {
+        $this->createMainMenu();
+        $this->updateAdminMenu();
+    }
+
+    protected function createMainMenu()
+    {
         $menu = Menu::where('name', 'admin')->firstOrFail();
 
         $menuItem = MenuItem::firstOrNew([
@@ -50,5 +56,48 @@ class BlogMenuItemsTableSeeder extends Seeder
                 'order' => 3,
             ])->save();
         }
+    }
+
+    protected function updateAdminMenu()
+    {
+        // Ensure the admin menu exists
+        Menu::firstOrCreate([
+            'name' => 'admin',
+        ]);
+        $menu = Menu::where('name', 'admin')->firstOrFail();
+
+        // Add a top level 'blog' menu item
+        $parentItem = MenuItem::firstOrNew([
+            'menu_id' => $menu->id,
+            'title' => 'Blog',
+            'url' => '#',
+            'route' => null,
+        ]);
+        if (!$parentItem->exists) {
+            $parentItem->fill([
+                'target' => '_self',
+                'icon_class' => 'voyager-news',
+                'color' => null,
+                'parent_id' => null,
+                'order' => 5,
+            ])->save();
+        }
+
+        // Nest Posts and Categories under Blog
+        $postsItem = MenuItem::where([
+            ['title', '=', 'Posts'],
+            ['menu_id', '=', 1],
+        ])->first();
+        $postsItem->parent_id = (int)$parentItem->id;
+        $postsItem->order = 1;
+        $postsItem->save();
+
+        $postsItem = MenuItem::where([
+            ['title', '=', 'Categories'],
+            ['menu_id', '=', 1],
+        ])->first();
+        $postsItem->parent_id = (int)$parentItem->id;
+        $postsItem->order = 2;
+        $postsItem->save();
     }
 }
