@@ -84,12 +84,21 @@ class BlogMenuItemsTableSeeder extends Seeder
         }
 
         // Nest Posts and Categories under Blog
-        $categoryItem = MenuItem::where([
-            ['title', '=', 'Categories'],
-            ['menu_id', '=', 1],
-        ])->first();
-        $categoryItem->parent_id = (int)$parentItem->id;
-        $categoryItem->order = 2;
-        $categoryItem->save();
+        $categoryItem = MenuItem::firstOrNew([
+            'menu_id' => $menu->id,
+            'title' => 'Categories',
+            'url' => '',
+            'route' => 'voyager.categories.index'
+        ]);
+
+        if (!$categoryItem->exists) {
+            $categoryItem->fill([
+                'target' => '_self',
+                'icon_class' => 'voyager-categories',
+                'color' => null,
+                'parent_id' => $parentItem->id,
+                'order' => 2,
+            ])->save();
+        }
     }
 }
