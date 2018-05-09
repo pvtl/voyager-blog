@@ -4,9 +4,9 @@ namespace Pvtl\VoyagerBlog\Http\Controllers;
 
 use Pvtl\VoyagerBlog\BlogPost;
 use Illuminate\Support\Carbon;
-use TCG\Voyager\Http\Controllers\VoyagerBreadController as BaseVoyagerBreadController;
+use TCG\Voyager\Http\Controllers\VoyagerBaseController;
 
-class PostController extends BaseVoyagerBreadController
+class PostController extends VoyagerBaseController
 {
     protected $viewPath = 'voyager-blog';
 
