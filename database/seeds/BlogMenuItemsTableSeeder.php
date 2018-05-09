@@ -19,7 +19,9 @@ class BlogMenuItemsTableSeeder extends Seeder
 
     protected function createMainMenu()
     {
-        $menu = Menu::where('name', 'primary')->firstOrFail();
+        $menu = Menu::firstOrNew([
+            'name' => 'primary',
+        ]);
 
         $menuItem = MenuItem::firstOrNew([
             'menu_id' => $menu->id,
