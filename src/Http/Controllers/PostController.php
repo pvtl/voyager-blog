@@ -60,7 +60,7 @@ class PostController extends VoyagerBaseController
         $relatedPosts = array();
         if (!empty(trim($post->tags))) {
             $tags = explode(',', $post->tags);
-            $relatedPosts = Post::where([
+            $relatedPosts = BlogPost::where([
                     ['id', '!=', $post->id],
                 ])->where(function ($query) use ($tags) {
                     foreach ($tags as $tag) {
