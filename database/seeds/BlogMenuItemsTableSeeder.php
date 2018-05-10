@@ -73,34 +73,24 @@ class BlogMenuItemsTableSeeder extends Seeder
             'title' => 'Posts',
             'url' => '',
             'route' => 'voyager.blog_posts.index',
-        ]);
-
-        if (!$menuItem->exists) {
-            $menuItem->fill([
-                'target' => '_self',
-                'icon_class' => 'voyager-news',
-                'color' => null,
-                'parent_id' => $parentItem->id,
-                'order' => 1,
-            ])->save();
-        }
+            'target' => '_self',
+            'icon_class' => 'voyager-news',
+            'color' => null,
+            'parent_id' => $parentItem->id,
+            'order' => 1,
+        ])->save();
 
         // Nest Posts and Categories under Blog
         $categoryItem = MenuItem::firstOrNew([
             'menu_id' => $menu->id,
             'title' => 'Categories',
             'url' => '',
-            'route' => 'voyager.categories.index'
-        ]);
-
-        if (!$categoryItem->exists) {
-            $categoryItem->fill([
-                'target' => '_self',
-                'icon_class' => 'voyager-categories',
-                'color' => null,
-                'parent_id' => $parentItem->id,
-                'order' => 2,
-            ])->save();
-        }
+            'route' => 'voyager.categories.index',
+            'target' => '_self',
+            'icon_class' => 'voyager-categories',
+            'color' => null,
+            'parent_id' => $parentItem->id,
+            'order' => 2,
+        ])->save();
     }
 }
