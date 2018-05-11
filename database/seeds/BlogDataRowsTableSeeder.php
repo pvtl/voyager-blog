@@ -175,7 +175,7 @@ class BlogDataRowsTableSeeder extends Seeder
             $dataRow->fill([
                 'type'         => 'text_area',
                 'display_name' => 'meta_description',
-                'required'     => 1,
+                'required'     => 0,
                 'browse'       => 0,
                 'read'         => 1,
                 'edit'         => 1,
