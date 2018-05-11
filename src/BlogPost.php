@@ -56,4 +56,12 @@ class BlogPost extends Model
     {
         return $this->belongsTo(Voyager::modelClass('Category'));
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function categoryId()
+    {
+        return $this->belongsTo(Voyager::modelClass('Category'));
+    }
 }

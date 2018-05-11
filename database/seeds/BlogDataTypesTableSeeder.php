@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use TCG\Voyager\Models\DataType;
+use TCG\Voyager\Models\DataRow;
 
 class BlogDataTypesTableSeeder extends Seeder
 {
@@ -30,10 +31,66 @@ class BlogDataTypesTableSeeder extends Seeder
                 'controller' => '\\Pvtl\\VoyagerBlog\\Http\\Controllers\\PostController',
             ]);
         }
+
+        $dataRow = $this->dataRow($dataType, 'author_id');
+        $dataRow->fill([
+            'type'         => 'select_dropdown',
+            'display_name' => __('voyager::seeders.data_rows.author'),
+            'required'     => 0,
+            'browse'       => 0,
+            'read'         => 1,
+            'edit'         => 1,
+            'add'          => 1,
+            'delete'       => 1,
+            'details'      => json_encode([
+                'default' => '',
+                'null'    => '',
+                'options' => [
+                    '' => '-- None --',
+                ],
+                'relationship' => [
+                    'key'   => 'id',
+                    'label' => 'name',
+                ],
+            ]),
+            'order' => 2,
+        ])->save();
+
+        $dataRow = $this->dataRow($dataType, 'category_id');
+        $dataRow->fill([
+            'type'         => 'select_dropdown',
+            'display_name' => __('voyager::seeders.data_rows.category'),
+            'required'     => 0,
+            'browse'       => 0,
+            'read'         => 1,
+            'edit'         => 1,
+            'add'          => 1,
+            'delete'       => 1,
+            'details'      => json_encode([
+                'default' => '',
+                'null'    => '',
+                'options' => [
+                    '' => '-- None --',
+                ],
+                'relationship' => [
+                    'key'   => 'id',
+                    'label' => 'name',
+                ],
+            ]),
+            'order' => 2,
+        ])->save();
     }
 
     protected function dataType($field, $for)
     {
         return DataType::firstOrNew([$field => $for]);
+    }
+    
+    protected function dataRow($type, $field)
+    {
+        return DataRow::firstOrNew([
+            'data_type_id' => $type->id,
+            'field' => $field,
+        ]);
     }
 }
