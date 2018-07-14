@@ -58,7 +58,6 @@ class BlogServiceProvider extends ServiceProvider
     {
         // Load views
         $this->loadViewsFrom(self::PACKAGE_DIR . 'resources/views', 'voyager-blog');
-        $this->loadViewsFrom(self::PACKAGE_DIR . 'resources/views/vendor/voyager', 'voyager');
     }
 
     /**
