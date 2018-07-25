@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class RemoveKeywordsField extends Migration
+class RemoveBlogKeywordsField extends Migration
 {
     /**
      * Run the migrations.
@@ -15,7 +15,9 @@ class RemoveKeywordsField extends Migration
     {
         if (Schema::hasTable('blog_posts')) {
             Schema::table('blog_posts', function (Blueprint $table) {
-                $table->dropColumn('meta_keywords');
+                if (Schema::hasColumn('blog_posts', 'meta_keywords')) {
+                    $table->dropColumn('meta_keywords');
+                }
             });
         }
     }
