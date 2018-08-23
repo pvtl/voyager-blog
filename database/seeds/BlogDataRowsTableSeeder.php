@@ -165,6 +165,9 @@ class BlogDataRowsTableSeeder extends Seeder
                         'origin'      => 'title',
                         'forceUpdate' => true,
                     ],
+                    'validation' => [
+                        'rule'  => 'unique:blog_posts,slug',
+                    ],
                 ]),
                 'order' => 8,
             ])->save();
