@@ -2,15 +2,13 @@
 
 namespace Pvtl\VoyagerBlog;
 
+use Illuminate\Database\Eloquent\Model;
 use TCG\Voyager\Facades\Voyager;
 use TCG\Voyager\Traits\Translatable;
-use TCG\Voyager\Traits\HasRelationships;
-use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-    use Translatable,
-        HasRelationships;
+    use Translatable;
 
     protected $translatable = ['slug', 'name'];
 
