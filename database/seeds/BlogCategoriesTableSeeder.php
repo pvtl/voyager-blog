@@ -46,7 +46,7 @@ class BlogCategoriesTableSeeder extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'details'      => json_encode([
+                'details'      => [
                     'default' => '',
                     'null'    => '',
                     'options' => [
@@ -56,7 +56,7 @@ class BlogCategoriesTableSeeder extends Seeder
                         'key'   => 'id',
                         'label' => 'name',
                     ],
-                ]),
+                ],
                 'order' => 2,
             ])->save();
         }
@@ -72,9 +72,9 @@ class BlogCategoriesTableSeeder extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'details'      => json_encode([
+                'details'      => [
                     'default' => 1,
-                ]),
+                ],
                 'order' => 3,
             ])->save();
         }
@@ -106,11 +106,11 @@ class BlogCategoriesTableSeeder extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'details'      => json_encode([
+                'details'      => [
                     'slugify' => [
                         'origin' => 'name',
                     ],
-                ]),
+                ],
                 'order' => 5,
             ])->save();
         }

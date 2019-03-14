@@ -42,7 +42,7 @@ class BlogDataTypesTableSeeder extends Seeder
             'edit'         => 1,
             'add'          => 1,
             'delete'       => 1,
-            'details'      => json_encode([
+            'details'      => [
                 'default' => '',
                 'null'    => '',
                 'options' => [
@@ -52,7 +52,7 @@ class BlogDataTypesTableSeeder extends Seeder
                     'key'   => 'id',
                     'label' => 'name',
                 ],
-            ]),
+            ],
             'order' => 2,
         ])->save();
 
@@ -66,7 +66,7 @@ class BlogDataTypesTableSeeder extends Seeder
             'edit'         => 1,
             'add'          => 1,
             'delete'       => 1,
-            'details'      => json_encode([
+            'details'      => [
                 'default' => '',
                 'null'    => '',
                 'options' => [
@@ -76,7 +76,7 @@ class BlogDataTypesTableSeeder extends Seeder
                     'key'   => 'id',
                     'label' => 'name',
                 ],
-            ]),
+            ],
             'order' => 2,
         ])->save();
     }

@@ -120,7 +120,7 @@ class BlogDataRowsTableSeeder extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'details'      => json_encode([
+                'details'      => [
                     'resize' => [
                         'width'  => '1000',
                         'height' => 'null',
@@ -144,7 +144,7 @@ class BlogDataRowsTableSeeder extends Seeder
                             ],
                         ],
                     ],
-                ]),
+                ],
                 'order' => 7,
             ])->save();
         }
@@ -160,7 +160,7 @@ class BlogDataRowsTableSeeder extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'details'      => json_encode([
+                'details'      => [
                     'slugify' => [
                         'origin'      => 'title',
                         'forceUpdate' => true,
@@ -168,7 +168,7 @@ class BlogDataRowsTableSeeder extends Seeder
                     'validation' => [
                         'rule'  => 'unique:blog_posts,slug',
                     ],
-                ]),
+                ],
                 'order' => 8,
             ])->save();
         }
@@ -200,14 +200,14 @@ class BlogDataRowsTableSeeder extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'details'      => json_encode([
+                'details'      => [
                     'default' => 'DRAFT',
                     'options' => [
                         'PUBLISHED' => 'published',
                         'DRAFT'     => 'draft',
                         'PENDING'   => 'pending',
                     ],
-                ]),
+                ],
                 'order' => 11,
             ])->save();
         }
@@ -271,7 +271,7 @@ class BlogDataRowsTableSeeder extends Seeder
                 'edit' => 1,
                 'add' => 1,
                 'delete' => 1,
-                'details' => json_encode([
+                'details' => [
                     'format' => '%Y-%m-%d',
                     'validation' => [
                         'rules' => [
@@ -279,7 +279,7 @@ class BlogDataRowsTableSeeder extends Seeder
                             'date_format:YYYY-MM-DD',
                         ]
                     ]
-                ]),
+                ],
                 'order' => 15,
             ])->save();
         }
