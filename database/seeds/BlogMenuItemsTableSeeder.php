@@ -19,7 +19,7 @@ class BlogMenuItemsTableSeeder extends Seeder
 
     protected function createMainMenu()
     {
-        $menu = Menu::firstOrNew([
+        $menu = Menu::firstOrCreate([
             'name' => 'primary',
         ]);
 
@@ -34,7 +34,7 @@ class BlogMenuItemsTableSeeder extends Seeder
             $menuItem->fill([
                 'target' => '_self',
                 'icon_class' => null,
-                'color' => '#000000',
+                'color' => null,
                 'parent_id' => null,
                 'order' => 3,
             ])->save();
