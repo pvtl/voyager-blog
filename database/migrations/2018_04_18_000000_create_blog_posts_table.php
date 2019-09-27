@@ -25,7 +25,7 @@ class CreateBlogPostsTable extends Migration
                 $table->string('image')->nullable();
                 $table->string('slug')->unique();
                 $table->text('meta_description');
-                $table->text('meta_keywords');
+                $table->text('meta_keywords')->nullable();
                 $table->enum('status', ['PUBLISHED', 'DRAFT', 'PENDING'])->default('DRAFT');
                 $table->boolean('featured')->default(0);
                 $table->timestamps();
