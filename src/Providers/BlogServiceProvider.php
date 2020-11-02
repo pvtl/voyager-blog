@@ -68,10 +68,14 @@ class BlogServiceProvider extends ServiceProvider
         // Load migrations
         $this->loadMigrationsFrom(self::PACKAGE_DIR . 'database/migrations');
 
-        // Locate our factories for testing
-        $this->app->make('Illuminate\Database\Eloquent\Factory')->load(
-            self::PACKAGE_DIR . 'database/factories'
-        );
+        // Locate our factories for testing if they exist
+        $factoryClass = 'Illuminate\Database\Eloquent\Factory';
+
+        if (class_exists($factoryClass)) {
+            $this->app->make($factoryClass)->load(
+                self::PACKAGE_DIR . 'database/factories'
+            );
+        }
     }
 
     /**
