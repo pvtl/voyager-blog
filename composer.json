@@ -18,7 +18,8 @@
         }
     ],
     "require": {
-        "tcg/voyager": "^1.1.8"
+        "tcg/voyager": "^1.1.8",
+        "laravel/legacy-factories": "^1.1.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^8.5"
